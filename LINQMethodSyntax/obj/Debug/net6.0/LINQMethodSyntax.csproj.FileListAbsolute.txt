@@ -1,0 +1,15 @@
+C:\Users\meesh\source\repos\LINQMethodSyntax\LINQMethodSyntax\bin\Debug\net6.0\LINQMethodSyntax.exe
+C:\Users\meesh\source\repos\LINQMethodSyntax\LINQMethodSyntax\bin\Debug\net6.0\LINQMethodSyntax.deps.json
+C:\Users\meesh\source\repos\LINQMethodSyntax\LINQMethodSyntax\bin\Debug\net6.0\LINQMethodSyntax.runtimeconfig.json
+C:\Users\meesh\source\repos\LINQMethodSyntax\LINQMethodSyntax\bin\Debug\net6.0\LINQMethodSyntax.dll
+C:\Users\meesh\source\repos\LINQMethodSyntax\LINQMethodSyntax\bin\Debug\net6.0\LINQMethodSyntax.pdb
+C:\Users\meesh\source\repos\LINQMethodSyntax\LINQMethodSyntax\obj\Debug\net6.0\LINQMethodSyntax.csproj.AssemblyReference.cache
+C:\Users\meesh\source\repos\LINQMethodSyntax\LINQMethodSyntax\obj\Debug\net6.0\LINQMethodSyntax.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\meesh\source\repos\LINQMethodSyntax\LINQMethodSyntax\obj\Debug\net6.0\LINQMethodSyntax.AssemblyInfoInputs.cache
+C:\Users\meesh\source\repos\LINQMethodSyntax\LINQMethodSyntax\obj\Debug\net6.0\LINQMethodSyntax.AssemblyInfo.cs
+C:\Users\meesh\source\repos\LINQMethodSyntax\LINQMethodSyntax\obj\Debug\net6.0\LINQMethodSyntax.csproj.CoreCompileInputs.cache
+C:\Users\meesh\source\repos\LINQMethodSyntax\LINQMethodSyntax\obj\Debug\net6.0\LINQMethodSyntax.dll
+C:\Users\meesh\source\repos\LINQMethodSyntax\LINQMethodSyntax\obj\Debug\net6.0\refint\LINQMethodSyntax.dll
+C:\Users\meesh\source\repos\LINQMethodSyntax\LINQMethodSyntax\obj\Debug\net6.0\LINQMethodSyntax.pdb
+C:\Users\meesh\source\repos\LINQMethodSyntax\LINQMethodSyntax\obj\Debug\net6.0\LINQMethodSyntax.genruntimeconfig.cache
+C:\Users\meesh\source\repos\LINQMethodSyntax\LINQMethodSyntax\obj\Debug\net6.0\ref\LINQMethodSyntax.dll
