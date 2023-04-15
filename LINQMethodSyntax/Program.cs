@@ -59,112 +59,96 @@ namespace LINQMethodSyntax
 
 
 
-            var groupedGPA = from s in studentGPAList
-                             orderby s.GPA
-                             group s by s.GPA;
+            var groupedGPA = studentGPAList.GroupBy(s => s.GPA);
+          
             foreach (var GPAGroup in groupedGPA)
             {
-
                 Console.WriteLine("Student GPA: " + GPAGroup.Key);
-
                 foreach (StudentGPA s in GPAGroup)
                 {
                     Console.WriteLine("Student ID: " + s.StudentID);
                     Console.WriteLine("----------------------------------");
-
                 }
                 Console.WriteLine();
             }
-            var allStudents = from c in studentClubList
-                              orderby c.ClubName, c.StudentID
-                              select c;
-            var allStudents2 = studentClubList.OrderBy(o => o.StudentID).ThenBy(o => o.ClubName);
 
-            Console.WriteLine("Students sorted by club");
-            Console.WriteLine();
-            foreach (StudentClubs std in allStudents)
-            {
-                Console.WriteLine("Student ID: " + std.StudentID);
-                Console.WriteLine("Club:" + std.ClubName);
-                Console.WriteLine("-----------------------------------");
-            }
-            Console.WriteLine();
-            Console.WriteLine("Students sorted by Club and ID");
-            Console.WriteLine();
-            foreach (StudentClubs c in allStudents2)
-            {
-                Console.WriteLine("Club:" + c.ClubName);
-                Console.WriteLine("Student ID:" + c.StudentID);
-                Console.WriteLine("--------------------------------");
-            }
+            var Clubs = studentClubList.OrderBy(c => c.ClubName).GroupBy(s => s.ClubName);
+                foreach (var clubGroup in Clubs)
+                {
+                Console.WriteLine("Club Name: " + clubGroup.Key);
+                foreach (StudentClubs s in clubGroup)
+                {
+                    Console.WriteLine(" Student ID: " + s.StudentID);
+                    Console.WriteLine("----------------------------------");
+                }
+              
+                    Console.WriteLine();
+                }                    
+           
+           
             var countGPA = studentGPAList.Count();
-            Console.WriteLine("All students with a GPA between 2.5 and 4.0" + countGPA);
+            Console.WriteLine("----All students with a GPA between 2.5 and 4.0---");
             countGPA = studentGPAList.Count(s => s.GPA > 2.5);
             Console.WriteLine("The number of students with a GPA of 2.5 to a 4.o is " + countGPA);
             var totalTuition = studentList.Average(s => s.Tuition);
             Console.WriteLine("The average tuition for all students is " + string.Format("{0:c}", totalTuition));
-            totalTuition = studentList.Sum(s => s.Tuition);
-            Console.WriteLine("Tuition is " + string.Format("{0:c}", totalTuition));
+           // totalTuition = studentList.Sum(s => s.Tuition);
+           //Console.WriteLine("Tuition is " + string.Format("{0:c}", totalTuition));
             var maxTuition = studentList.Max(s => s.Tuition);
-            Console.WriteLine("The max tuition for all students is " + String.Format("{0:C}", maxTuition));
-            maxTuition = studentList.Count(s => s.Tuition > 3500);
+            Console.WriteLine("The max tuition for students is " + String.Format("{0:C}", maxTuition));
+            
+            Console.WriteLine("Students paying the max tuition per year are...");
             foreach (Student s in studentList)
             {
-                for (int i = 0; i == maxTuition; i++)
+                for (int i = 0; i >= maxTuition; i++)
                 {
-
+                    maxTuition = studentList.Count(s => s.Tuition >= 5500);
                     Console.WriteLine("Name:" + s.StudentName);
                     Console.WriteLine("Major:" + s.Major);
                     Console.WriteLine("Tuition:" + s.Tuition);
 
                 }
 
-
+                
+                Console.WriteLine($"Name: {s.StudentName} \tMajor:{s.Major} \tTuition:{s.Tuition}");
                 Console.WriteLine();
-
+             }
                 var innerJoin = studentList.Join(studentGPAList,
                     student => student.StudentID,
-                    StudentGPA => StudentGPA.StudentID,
-                    (student, StudentGPA) => new
+                    SG => SG.StudentID,
+                    (student, SG) => new
                     {
-
                         StudentName = student.StudentName,
                         StudentMajor = student.Major,
+                        GPA = SG.GPA 
                     });
                 Console.WriteLine("Student who belong to the GPA club");
                 Console.WriteLine();
                 foreach (var t in innerJoin)
                 {
-                    Console.WriteLine($"Name: {t.StudentName} \t\tMajor: {t.StudentMajor}");
+                    Console.WriteLine($"Name: {t.StudentName} \tMajor: {t.StudentMajor} \tGPA: {t.GPA}");
                     Console.WriteLine();
                 }
-                var studentGPAs = from t in studentGPAList
-                                  join g in studentList
-                                  on t.StudentID equals g.StudentID
-                                  select new { s.StudentName, s.Major, t.GPA };
-                Console.WriteLine("Student GPA's");
-                Console.WriteLine();
-                foreach (var t in studentGPAs)
-                {
-                    Console.WriteLine($"Name: {s.StudentName} \tGPA: {t.GPA} \tMajor: {s.Major}");
-                    Console.WriteLine();
-                }
+                
                 var innerJoin2 = studentList.Join(studentClubList,
                     student => student.StudentID,
                     studentName => studentName.StudentID,
                     (student, studentName) => new
+
                     {
-                        studentName = student.StudentName
+                        studentName = student.StudentName,
+                        ClubName = studentName.ClubName
                     });
+            
                 Console.WriteLine("student who belong in the  Game club");
                 Console.WriteLine();
                 foreach(var e in innerJoin2)
                 {
-                    Console.WriteLine($"Name: {e.studentName}");
+                    Console.WriteLine($"---Name: {e.studentName}---");
                     Console.WriteLine();
                 }
-            }
-
+        
+            
         }
     }
 }
