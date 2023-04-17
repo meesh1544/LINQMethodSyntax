@@ -146,9 +146,10 @@ namespace LINQMethodSyntax
                 {
                     Console.WriteLine($"---Name: {e.studentName}---");
                     Console.WriteLine();
+                    Console.WriteLine($"Name: {e.studentName} Club: { e.ClubName} ");
                 }
         
-            
+           
         }
     }
 }
